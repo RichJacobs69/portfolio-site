@@ -4,8 +4,7 @@ import matter from 'gray-matter';
 import { remark } from 'remark';
 import html from 'remark-html';
 
-const writingDirectory = path.join(process.cwd(), '..', 'content/writing');
-
+const writingDirectory = path.join(process.cwd(), 'content/writing');
 // Get a single markdown file by slug
 export async function getWritingBySlug(slug: string) {
   try {
