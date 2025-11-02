@@ -32,8 +32,15 @@ export async function getWritingBySlug(slug: string) {
 }
 
 // Get all markdown files (for generating static paths)
+// Get all markdown files (for generating static paths)
 export function getAllWritingSlugs() {
   try {
+    // Check if directory exists first
+    if (!fs.existsSync(writingDirectory)) {
+      console.warn('Writing directory does not exist yet');
+      return [];
+    }
+    
     const fileNames = fs.readdirSync(writingDirectory);
     return fileNames
       .filter(fileName => fileName.endsWith('.md'))
