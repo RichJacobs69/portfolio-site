@@ -17,3 +17,55 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
 }
+/* Markdown Content Styling */
+.markdown-content {
+  @apply text-gray-300 leading-relaxed;
+}
+
+.markdown-content h1 {
+  @apply text-3xl font-bold mb-6 mt-8 text-white;
+}
+
+.markdown-content h2 {
+  @apply text-2xl font-bold mb-4 mt-8 text-white border-l-2 border-gray-700 pl-4;
+}
+
+.markdown-content h3 {
+  @apply text-xl font-semibold mb-3 mt-6 text-white;
+}
+
+.markdown-content p {
+  @apply mb-4 text-gray-300;
+}
+
+.markdown-content ul {
+  @apply list-disc list-inside mb-4 space-y-2;
+}
+
+.markdown-content ol {
+  @apply list-decimal list-inside mb-4 space-y-2;
+}
+
+.markdown-content a {
+  @apply text-blue-400 hover:text-blue-300 underline;
+}
+
+.markdown-content code {
+  @apply bg-[#1a1a1a] px-2 py-1 rounded text-sm text-blue-300;
+}
+
+.markdown-content pre {
+  @apply bg-[#1a1a1a] p-4 rounded-lg overflow-x-auto mb-4;
+}
+
+.markdown-content blockquote {
+  @apply border-l-4 border-gray-700 pl-4 italic text-gray-400 my-4;
+}
+
+.markdown-content img {
+  @apply rounded-lg my-6;
+}
+
+.markdown-content hr {
+  @apply border-gray-700 my-8;
+}

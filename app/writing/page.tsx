@@ -1,117 +1,103 @@
-export default function Writing() {
-    return (
-      <main className="min-h-screen bg-background text-foreground">
-        {/* Header */}
-        <header className="border-b border-gray-800">
-          <nav className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="/" className="text-xl font-bold hover:text-gray-400">Rich Jacobs</a>
-            <div className="flex gap-6">
-              <a href="/" className="hover:text-gray-400">Home</a>
-              <a href="/cv" className="hover:text-gray-400">CV</a>
-              <a href="/writing" className="hover:text-gray-400">Writing</a>
-              <a href="/#contact" className="hover:text-gray-400">Contact</a>
-            </div>
-          </nav>
-        </header>
-         {/* Hero Section */}
-      <section className="max-w-4xl mx-auto px-6 py-20">
-        <h1 className="text-5xl font-bold mb-4">Rich Jacobs</h1>
-        <p className="text-xl text-gray-400 mb-2">
-          Senior Product Manager. Building data & AI products. Learning by doing.
-        </p>
-      </section>
-  
-        {/* Writing Content */}
-        <section className="max-w-4xl mx-auto px-6 py-20 border-t border-gray-800">
-          <h2 className="text-3xl font-bold mb-12">Writing</h2>
-          <p className="text-gray-400 mb-12 text-lg">
-            Thoughts on data products, AI integration, and product leadership
+import Link from 'next/link';
+import { writingPieces, caseStudies, articles } from '@/lib/writingData';
+
+export default function WritingPage() {
+  return (
+    <div className="min-h-screen bg-[#0a0a0a] text-gray-100">
+      <div className="max-w-4xl mx-auto px-6 py-16">
+        
+        {/* Page Header */}
+        <div className="mb-16">
+          <h2 className="text-3xl font-bold mb-4">Writing</h2>
+          <p className="text-gray-400 text-lg">
+            Case studies from real product work, plus frameworks and lessons learned along the way.
           </p>
-  
-          {/* Coming Soon Message */}
-          <div className="border border-gray-800 rounded-lg p-12 text-center">
-            <div className="max-w-2xl mx-auto">
-              <h2 className="text-3xl font-bold mb-12 text-white">Coming Soon</h2>
-              <p className="text-gray-300 mb-6 leading-relaxed">
-                I'm currently focused on building technical products and will be sharing insights about 
-                integrating AI into analytics products, lessons from managing data teams, and my journey 
-                learning to code as a product manager.
-              </p>
-              <p className="text-gray-500 text-sm">
-                Check back soon for articles on data product strategy, LLM integration patterns, and more.
-              </p>
-            </div>
-          </div>
-  
-          {/* Optional: Placeholder for future posts */}
-          <div className="mt-16">
-            <h2 className="text-3xl font-bold mb-12">Upcoming Topics</h2>
-            <div className="grid gap-6">
-              <div className="border border-gray-800 rounded-lg p-6 opacity-50">
-                <h3 className="text-xl font-semibold mb-2 text-white">Building a Job Aggregator with LLMs</h3>
-                <p className="text-gray-400 mb-3">
-                  How I built a job market analyzer using data pipelines and LLM classification
+        </div>
+
+        {/* SECTION 1: CASE STUDIES */}
+        <section className="mb-24">
+          <h2 className="text-3xl font-bold mb-8">Case Studies</h2>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {caseStudies.map((piece) => (
+              <Link 
+                key={piece.slug} 
+                href={`/writing/${piece.slug}`}
+                className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-6 hover:border-[#60a5fa] transition-colors group"
+              >
+                
+                {/* Title */}
+                <h3 className="text-xl font-semibold mb-3 group-hover:text-[#60a5fa] transition-colors">
+                  {piece.title}
+                </h3>
+
+                {/* Description */}
+                <p className="text-gray-400 mb-4 text-sm leading-relaxed">
+                  {piece.description}
                 </p>
-                <span className="text-sm text-gray-500">Coming Soon</span>
-              </div>
-  
-              <div className="border border-gray-800 rounded-lg p-6 opacity-50">
-                <h3 className="text-xl font-semibold mb-2 text-white">From Managing to Building</h3>
-                <p className="text-gray-400 mb-3">
-                  What I learned building products alongside the teams I lead
-                </p>
-                <span className="text-sm text-gray-500">Coming Soon</span>
-              </div>
-  
-              <div className="border border-gray-800 rounded-lg p-6 opacity-50">
-                <h3 className="text-xl font-semibold mb-2 text-white">Data Product Strategy for Series B/C</h3>
-                <p className="text-gray-400 mb-3">
-                  Balancing speed with quality when building data platforms at scale
-                </p>
-                <span className="text-sm text-gray-500">Coming Soon</span>
-              </div>
-            </div>
+
+                {/* Outcome and Meta */}
+                <div className="flex items-center justify-between pt-4 border-t border-[#2a2a2a]">
+                  <div className="flex flex-col">
+                    <div className="text-2xl font-bold text-[#60a5fa]">
+                      {piece.outcome}
+                    </div>
+                    <div className="text-xs text-gray-500 mt-1">
+                      Coming Soon • {piece.readingTime} read
+                    </div>
+                  </div>
+                  <div className="text-sm text-gray-500">Read case study →</div>
+                </div>
+              </Link>
+            ))}
           </div>
         </section>
-        {/* Footer / Contact Section */}
-<footer id="contact" className="max-w-4xl mx-auto px-6 py-20 border-t border-gray-800">
-  <div className="max-w-3xl">
-    <h2 className="text-3xl font-bold mb-12">Get In Touch</h2>
-    <p className="text-gray-300 text-lg mb-8">
-      I'm currently exploring opportunities in AI product management. 
-      Let's connect if you're working on real-world problems that can genuinely be solved with data and AI.
-    </p>
-    
-    <div className="flex gap-6 mb-12">
-  <a 
-    href="mailto:rich@richjacobs.me" 
-    className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
-  >
-    Email Me
-  </a>
-  <a 
-    href="https://www.linkedin.com/in/rjacobsuk" 
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
-  >
-    LinkedIn
-  </a>
-  <a 
-    href="https://github.com/RichJacobs69" 
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
-  >
-    GitHub
-  </a>
-</div>
 
-    <div className="text-gray-500 text-sm">
-      <p>© 2025 Rich Jacobs. Built with Next.js and Tailwind CSS.</p>
+        {/* SECTION 2: ARTICLES & FRAMEWORKS */}
+        <section>
+          <h2 className="text-3xl font-bold mb-8">Articles & Frameworks</h2>
+          
+          <div className="space-y-4">
+            {articles.map((piece) => (
+              <Link
+                key={piece.slug}
+                href={`/writing/${piece.slug}`}
+                className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-5 hover:border-[#60a5fa] transition-colors group block"
+              >
+                <div className="flex items-start justify-between">
+                  <div className="flex-1">
+                    {/* Tag and Meta */}
+                    <div className="flex items-center gap-2 mb-2">
+                      <span className="text-xs px-2 py-1 bg-[#2a2a2a] rounded text-gray-400">
+                        {piece.tag}
+                      </span>
+                      <span className="text-xs text-gray-500">
+                        Coming Soon • {piece.readingTime} read
+                      </span>
+                    </div>
+
+                    {/* Title */}
+                    <h3 className="text-lg font-semibold mb-2 group-hover:text-[#60a5fa] transition-colors">
+                      {piece.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-sm text-gray-400">
+                      {piece.description}
+                    </p>
+                  </div>
+
+                  {/* Arrow */}
+                  <div className="ml-6 text-gray-500 group-hover:text-[#60a5fa] transition-colors">
+                    →
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+
+      </div>
     </div>
-  </div>
-</footer>
-      </main>
-    );
-  }
+  );
+}

@@ -1,26 +1,29 @@
 export default function Home() {
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Header/Navigation */}
-      <header className="border-b border-gray-800">
-        <nav className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-          <div className="text-xl font-bold">Rich Jacobs</div>
-          <div className="flex gap-6">
-            <a href="/" className="hover:text-gray-400">Home</a>
-            <a href="/cv" className="hover:text-gray-400">CV</a>
-            <a href="/writing" className="hover:text-gray-400">Writing</a>
-            <a href="#contact" className="hover:text-gray-400">Contact</a>
-          </div>
-        </nav>
-      </header>
       {/* Hero Section */}
       <section className="max-w-4xl mx-auto px-6 py-20">
-        <h1 className="text-5xl font-bold mb-4">Rich Jacobs</h1>
-        <p className="text-xl text-gray-400 mb-2">
-          Senior Product Manager. Building data & AI products. Learning by doing.
-        </p>
-      </section>
-
+  <h1 className="text-5xl font-bold mb-6 leading-tight">
+    Data analyst at heart, product manager by profession
+  </h1>
+  <p className="text-xl text-gray-400 mb-4 leading-relaxed">
+    Senior Product Manager specialising in data and AI! Currently learning to code on the side whilst building technical products that that drive outcomes!
+  </p>
+  <div className="flex gap-4 mt-8">
+    <a 
+      href="#contact" 
+      className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+    >
+      Get in touch
+    </a>
+    <a 
+      href="/writing" 
+      className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+    >
+      Read my writing
+    </a>
+  </div>
+</section>
 {/* Personal README Section */}
 <section className="max-w-4xl mx-auto px-6 py-20 border-t border-gray-800">
   <div className="max-w-3xl">
@@ -28,7 +31,7 @@ export default function Home() {
     
     <div className="space-y-12 text-lg leading-relaxed">
       <p className="text-gray-300">
-        Hey there! I'm a Senior Product Manager specialising in data platforms and AI integration. 
+        Hey there! My name's Rich and I specialise in data platforms and AI integration. 
         Solving genuine, ambiguous problems with data and AI gives me energy. I'm currently building 
         technical products while learning to code, pairing product thinking with hands-on development.
       </p>
@@ -245,45 +248,6 @@ export default function Home() {
     </div>
   </div>
 </section>
-{/* Footer / Contact Section */}
-<footer id="contact" className="max-w-4xl mx-auto px-6 py-20 border-t border-gray-800">
-  <div className="max-w-3xl">
-    <h2 className="text-3xl font-bold mb-12">Get In Touch</h2>
-    <p className="text-gray-300 text-lg mb-8">
-      I'm currently exploring opportunities in AI product management. 
-      Let's connect if you're working on real-world problems that can genuinely be solved with data and AI.
-    </p>
-    
-    <div className="flex gap-6 mb-12">
-  <a 
-    href="mailto:rich@richjacobs.me" 
-    className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
-  >
-    Email Me
-  </a>
-  <a 
-    href="https://www.linkedin.com/in/rjacobsuk" 
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
-  >
-    LinkedIn
-  </a>
-  <a 
-    href="https://github.com/RichJacobs69" 
-    target="_blank"
-    rel="noopener noreferrer"
-    className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
-  >
-    GitHub
-  </a>
-</div>
-
-    <div className="text-gray-500 text-sm">
-      <p>© 2025 Rich Jacobs. Built with Next.js and Tailwind CSS.</p>
-    </div>
-  </div>
-</footer>
     </main>
   );
 }
