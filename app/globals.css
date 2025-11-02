@@ -3,6 +3,25 @@
 :root {
   --background: #0a0a0a;
   --foreground: #ededed;
+  
+  /* Container widths */
+  --container-sm: 1024px;
+  --container-md: 1280px;
+  --container-lg: 1536px;
+  
+  /* Spacing */
+  --section-padding-y: 5rem;
+  --section-padding-x: 1.5rem;
+  
+  /* Colors */
+  --card-bg: #1a1a1a;
+  --border-color: rgba(42, 42, 42, 1);
+  --border-opacity: 0.5;
+  
+  /* Hero gradient */
+  --hero-gradient: linear-gradient(to bottom right, rgba(99, 102, 241, 0.2), transparent, rgba(139, 92, 246, 0.2));
+  --hero-gradient-subtle: linear-gradient(to bottom, rgba(99, 102, 241, 0.05), transparent);
+  --hero-gradient-footer: linear-gradient(to bottom right, rgba(99, 102, 241, 0.1), transparent, rgba(139, 92, 246, 0.1));
 }
 
 @theme inline {
@@ -17,7 +36,309 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), sans-serif;
 }
-/* Markdown Content Styling */
+
+/* ========================================
+   ENHANCED VISUAL EFFECTS
+   ======================================== */
+
+/* Gradient Text Utility */
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-text-blue {
+  background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Glow Effect on Hover */
+.glow-hover {
+  transition: all 0.3s ease;
+}
+
+.glow-hover:hover {
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(99, 102, 241, 0.15);
+  transform: scale(1.02);
+}
+
+/* Border Gradient */
+.border-gradient {
+  position: relative;
+  border: 1px solid transparent;
+  background: 
+    linear-gradient(to right, rgba(42, 42, 42, 1), rgba(42, 42, 42, 1)) padding-box,
+    linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3)) border-box;
+}
+
+.border-gradient:hover {
+  background: 
+    linear-gradient(to right, rgba(42, 42, 42, 1), rgba(42, 42, 42, 1)) padding-box,
+    linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5)) border-box;
+}
+
+/* Animation: Fade In Up */
+@keyframes fade-in-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in-up {
+  animation: fade-in-up 0.6s ease-out forwards;
+}
+
+.animate-fade-in-up-delay-1 {
+  animation: fade-in-up 0.6s ease-out 0.1s forwards;
+  opacity: 0;
+}
+
+.animate-fade-in-up-delay-2 {
+  animation: fade-in-up 0.6s ease-out 0.2s forwards;
+  opacity: 0;
+}
+
+/* Animation: Slow Pulse for Background Orbs */
+@keyframes pulse-slow {
+  0%, 100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s ease-in-out infinite;
+}
+
+.animate-pulse-slow-delayed {
+  animation: pulse-slow 8s ease-in-out 4s infinite;
+}
+
+/* Better List Styling with Enhanced Borders */
+.border-accent {
+  border-left: 2px solid rgb(75, 85, 99);
+  transition: border-color 0.3s ease;
+}
+
+.border-accent:hover {
+  border-left-color: rgb(99, 102, 241);
+}
+
+/* Enhanced Section Backgrounds */
+.section-enhanced {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-enhanced::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.03), transparent 50%);
+  pointer-events: none;
+}
+
+/* ========================================
+   REUSABLE COMPONENT CLASSES
+   ======================================== */
+
+/* Hero Section Pattern */
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-gradient-bg {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-gradient);
+}
+
+.hero-gradient-bg-subtle {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-gradient-subtle);
+}
+
+.hero-gradient-bg-footer {
+  position: absolute;
+  inset: 0;
+  background: var(--hero-gradient-footer);
+}
+
+.hero-content {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+  position: relative;
+  z-index: 10;
+}
+
+@media (min-width: 1024px) {
+  .hero-content {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .hero-content {
+    max-width: 1536px;
+  }
+}
+
+/* Container Pattern */
+.container-constrained {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 0 var(--section-padding-x);
+}
+
+@media (min-width: 1024px) {
+  .container-constrained {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-constrained {
+    max-width: 1536px;
+  }
+}
+
+/* Section Pattern */
+.section-standard {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: var(--section-padding-y) var(--section-padding-x);
+  border-top: 1px solid rgba(31, 41, 55, 0.5);
+}
+
+@media (min-width: 1024px) {
+  .section-standard {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .section-standard {
+    max-width: 1536px;
+  }
+}
+
+/* Hero Title Pattern */
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .hero-title {
+    font-size: 3.75rem;
+  }
+}
+
+/* Section Heading Pattern */
+.section-heading {
+  font-size: 2.25rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+}
+
+/* Card Pattern */
+.card-standard {
+  background: var(--card-bg);
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+  padding: 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-standard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  background: 
+    linear-gradient(to right, var(--border-color), var(--border-color)) padding-box,
+    linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5)) border-box;
+}
+
+/* Button Patterns */
+.btn-primary {
+  padding: 0.75rem 2rem;
+  background: #4f46e5;
+  border-radius: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background: #4338ca;
+}
+
+.btn-secondary {
+  padding: 0.75rem 2rem;
+  border: 2px solid rgba(55, 65, 81, 1);
+  border-radius: 0.5rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+}
+
+.btn-secondary:hover {
+  border-color: #4f46e5;
+  background: rgba(79, 70, 229, 0.05);
+}
+
+/* List Item Pattern */
+.list-item-accent {
+  padding-left: 1.5rem;
+  border-left: 2px solid rgb(75, 85, 99);
+  transition: border-color 0.3s ease;
+}
+
+.list-item-accent:hover {
+  border-left-color: rgb(99, 102, 241);
+  color: white;
+}
+
+/* Tag/Badge Pattern */
+.badge-default {
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  background: rgba(79, 70, 229, 0.1);
+  color: rgba(199, 210, 254, 1);
+  border-radius: 9999px;
+  border: 1px solid rgba(79, 70, 229, 0.2);
+  font-weight: 500;
+}
+
+/* ========================================
+   MARKDOWN CONTENT STYLING (UNCHANGED)
+   ======================================== */
 .markdown-content {
   @apply text-gray-300 leading-relaxed;
 }

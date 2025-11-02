@@ -32,7 +32,6 @@ export async function getWritingBySlug(slug: string) {
 }
 
 // Get all markdown files (for generating static paths)
-// Get all markdown files (for generating static paths)
 export function getAllWritingSlugs() {
   try {
     // Check if directory exists first
@@ -58,7 +57,7 @@ export function writingExists(slug: string): boolean {
   try {
     const fullPath = path.join(writingDirectory, `${slug}.md`);
     return fs.existsSync(fullPath);
-  } catch (error) {
+  } catch {
     return false;
   }
 }

@@ -33,7 +33,7 @@ export default async function WritingArticlePage({
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-gray-100">
-      <div className="max-w-4xl mx-auto px-6 py-16">
+      <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-16">
         
         {/* Back Button */}
         <Link 

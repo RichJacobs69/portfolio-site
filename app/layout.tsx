@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import Link from "next/link";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -27,34 +28,42 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased dark bg-[#0a0a0a] text-gray-100`}
       >
-        {/* Header/Navigation - persists across all pages */}
-        <header className="border-b border-gray-800">
-          <nav className="max-w-4xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div className="text-xl font-bold">Rich Jacobs</div>
+        {/* Header/Navigation - ENHANCED */}
+        <header className="border-b border-gray-800/50 backdrop-blur-sm sticky top-0 z-50 bg-[#0a0a0a]/90">
+          <nav className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+            <Link href="/" className="text-xl font-bold gradient-text hover:opacity-80 transition-opacity">
+              Rich Jacobs
+            </Link>
             <div className="flex gap-6">
-              <a href="/" className="hover:text-gray-400">Home</a>
-              <a href="/cv" className="hover:text-gray-400">CV</a>
-              <a href="/writing" className="hover:text-gray-400">Writing</a>
-              <a href="#contact" className="hover:text-gray-400">Contact</a>
+              <Link href="/" className="text-gray-300 hover:text-white transition-colors font-medium">Home</Link>
+              <Link href="/cv" className="text-gray-300 hover:text-white transition-colors font-medium">CV</Link>
+              <Link href="/writing" className="text-gray-300 hover:text-white transition-colors font-medium">Writing</Link>
+              <a href="#contact" className="text-gray-300 hover:text-white transition-colors font-medium">Contact</a>
             </div>
           </nav>
         </header>
 
         {/* Page content */}
         {children}
-        {/* Footer - persists across all pages */}
-        <footer id="contact" className="max-w-4xl mx-auto px-6 py-20 border-t border-gray-800">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-bold mb-12">Get In Touch</h2>
-            <p className="text-gray-300 text-lg mb-8">
-              I'm currently exploring opportunities in AI product management. 
-              Let's connect if you're working on real-world problems that can genuinely be solved with data and AI.
+
+        {/* Footer - ENHANCED */}
+        <footer id="contact" className="relative w-full border-t border-gray-800/50 overflow-hidden">
+  {/* Full-width gradient background */}
+  <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/10 via-transparent to-purple-950/10"></div>
+  
+  <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-24 relative z-10">
+    <div className="max-w-6xl">
+            <h2 className="text-4xl font-bold mb-8 gradient-text">Get In Touch</h2>
+            <p className="text-gray-300 text-lg mb-10 leading-relaxed">
+              I&apos;m currently exploring opportunities in AI product management. 
+              Let&apos;s connect if you&apos;re working on real-world problems that can genuinely be solved with data and AI.
             </p>
             
-            <div className="flex gap-6 mb-12">
+            {/* Enhanced buttons with consistent styling */}
+            <div className="flex flex-wrap gap-4 mb-12">
               <a 
                 href="mailto:rich@richjacobs.me" 
-                className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all duration-300 font-medium glow-hover"
               >
                 Email Me
               </a>
@@ -62,7 +71,7 @@ export default function RootLayout({
                 href="https://www.linkedin.com/in/rjacobsuk" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                className="px-8 py-3 border-2 border-gray-700 hover:border-indigo-500 hover:bg-indigo-500/5 rounded-lg transition-all duration-300 font-medium"
               >
                 LinkedIn
               </a>
@@ -70,16 +79,18 @@ export default function RootLayout({
                 href="https://github.com/RichJacobs69" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg transition-colors"
+                className="px-8 py-3 border-2 border-gray-700 hover:border-indigo-500 hover:bg-indigo-500/5 rounded-lg transition-all duration-300 font-medium"
               >
                 GitHub
               </a>
             </div>
 
-            <div className="text-gray-500 text-sm">
+            {/* Enhanced copyright text */}
+            <div className="text-gray-500 text-sm border-t border-gray-800/50 pt-8">
               <p>© 2025 Rich Jacobs. Built with Next.js and Tailwind CSS.</p>
             </div>
           </div>
+       </div>
         </footer>
       </body>
     </html>
