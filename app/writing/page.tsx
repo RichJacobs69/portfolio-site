@@ -10,7 +10,7 @@ export default function WritingPage() {
   <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/20 via-transparent to-purple-950/20"></div>
   
   {/* Content constrained */}
-  <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-24 relative z-10">
+  <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-15 relative z-10">
     <h1 className="text-5xl md:text-6xl font-bold mb-6 animate-fade-in-up">
       <span className="gradient-text">Writing</span>
     </h1>

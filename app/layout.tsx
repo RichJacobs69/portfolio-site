@@ -16,6 +16,16 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Rich Jacobs - Product Manager",
   description: "Building data & AI products. Learning by doing.",
+  icons: {
+    icon: [
+      { url: '/favicon/favicon.ico' },
+      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+  },
 };
 
 export default function RootLayout({
@@ -51,7 +61,7 @@ export default function RootLayout({
   {/* Full-width gradient background */}
   <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/10 via-transparent to-purple-950/10"></div>
   
-  <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-24 relative z-10">
+  <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-10 relative z-10">
     <div className="max-w-6xl">
             <h2 className="text-4xl font-bold mb-8 gradient-text">Get In Touch</h2>
             <p className="text-gray-300 text-lg mb-10 leading-relaxed">

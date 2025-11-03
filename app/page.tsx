@@ -9,27 +9,48 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/20 via-transparent to-purple-950/20"></div>
         
         {/* Content constrained */}
-        <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-32 relative z-10">
+        <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-15 relative z-10">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="order-2 lg:order-1">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
             <span className="gradient-text">Data analyst at heart</span>, product manager by profession
           </h1>
           <p className="text-xl text-gray-300 mb-4 leading-relaxed animate-fade-in-up-delay-1">
-            Senior Product Manager specialising in data and AI! Currently learning to code on the side whilst building technical products that drive outcomes!
+            Senior Product Manager specialising in data and AI. Currently learning to code on the side whilst building technical products that drive outcomes!
           </p>
           <div className="flex gap-4 mt-8 animate-fade-in-up-delay-2">
             <a 
               href="#contact" 
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all duration-300 font-medium"
+              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all duration-300 font-medium text-center"
             >
               Get in touch
             </a>
             <Link 
               href="/writing" 
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all duration-300 font-medium"
+              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all duration-300 font-medium text-center"
             >
-              Read my writing
+              My Writing
             </Link>
           </div>
+        </div>
+        {/* RIGHT: Your Photo */}
+  <div className="order-1 lg:order-2 relative animate-fade-in-up-delay-1">
+    <div className="relative max-w-xs mx-auto lg:max-w-md lg:ml-auto">
+      {/* Glow effect behind image */}
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/30 to-purple-500/30 rounded-2xl blur-3xl transform scale-105"></div>
+      
+      {/* Gradient border wrapper */}
+      <div className="relative p-1 bg-gradient-to-br from-indigo-500 via-purple-500 to-indigo-500 rounded-2xl">
+        <img 
+          src="/images/rich-hero.jpg" 
+          alt="Rich Jacobs"
+          className="relative rounded-2xl w-full h-auto object-cover shadow-2xl bg-[#0a0a0a]"
+        />
+      </div>
+    </div>
+  </div>
+  {/* Photo section ends */}
+        </div>
         </div>
       </section>
 
@@ -102,7 +123,7 @@ export default function Home() {
       </section>
 
       {/* Experience Highlights Section - ENHANCED */}
-      <section className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-20 border-t border-gray-800/50">
+      <section className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-10 border-t border-gray-800/50">
         <div className="max-w-6xl">
           <h2 className="text-4xl font-bold mb-12 gradient-text">Experience Highlights</h2>
           
@@ -183,7 +204,7 @@ export default function Home() {
       </section>
 
       {/* Skills & Tech Stack Section - ENHANCED */}
-      <section className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-20 border-t border-gray-800/50">
+      <section className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-10 border-t border-gray-800/50">
         <div className="max-w-6xl">
           <h2 className="text-4xl font-bold mb-12 gradient-text">Skills & Tech Stack</h2>
           
@@ -230,7 +251,7 @@ export default function Home() {
       </section>
 
       {/* Featured Projects Section - ENHANCED */}
-      <section className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-20 border-t border-gray-800/50">
+      <section className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-10 border-t border-gray-800/50">
         <div className="max-w-6xl">
           <h2 className="text-4xl font-bold mb-12 gradient-text">Featured Projects</h2>
           
