@@ -13,10 +13,10 @@ export default function Home() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
         <div className="order-2 lg:order-1">
           <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight animate-fade-in-up">
-            <span className="gradient-text">Data analyst at heart</span>, product manager by profession
+            <span className="gradient-text">Data geek at heart</span>, product manager by profession
           </h1>
           <p className="text-xl text-gray-300 mb-4 leading-relaxed animate-fade-in-up-delay-1">
-            Senior Product Manager specialising in data and AI. Currently learning to code on the side whilst building technical products that drive outcomes!
+            Senior Product Manager specialising in data intensive products. Currently learning to code on the side whilst building technical products that deliver real outcomes.
           </p>
           <div className="flex gap-4 mt-8 animate-fade-in-up-delay-2">
             <a 
@@ -65,22 +65,22 @@ export default function Home() {
             
             <div className="space-y-12 text-lg leading-relaxed">
               <p className="text-gray-300">
-                Hey there! My name&apos;s Rich and I specialise in data platforms and AI integration. 
-                Solving genuine, ambiguous problems with data and AI gives me energy. I&apos;m currently building 
-                technical products while learning to code, pairing product thinking with hands-on development.
+                Hey there! My name&apos;s Rich and I specialise in data product management and data strategy. 
+                Give me genuine, ambiguous problems with data and AI and I&apos;ll give you bundles of energy. I&apos;m currently building  
+                products while learning to code, combining years of technical product thinking with a desire to get back to hands-on development.
               </p>
               {/* Enhanced card design with gradient border */}
               <div className="bg-[#1a1a1a] border-gradient rounded-xl p-8">
                 <h3 className="text-2xl font-semibold mb-6 text-white">How I Work</h3>
                 <ul className="space-y-4 text-gray-300">
                   <li className="pl-6 border-accent hover:text-white transition-colors">
-                    Give me context and time to think, then let&apos;s make sure we&apos;re solving the right problem before we execute
+                    I love context and some time to think through problems so that we can execute in the right way
                   </li>
                   <li className="pl-6 border-accent hover:text-white transition-colors">
-                    I ask questions early to make sure we&apos;re solving the right problems, not just the loudest ones
+                    I ask questions early to make sure we&apos;re solving the critical problems, not the loudest ones
                   </li>
                   <li className="pl-6 border-accent hover:text-white transition-colors">
-                    I create safety for teams to own hard problems, disagree constructively, and grow through solving them
+                    I create safety for teams to own hard problems, disagree constructively, and grow through solving them together
                   </li>
                   <li className="pl-6 border-accent hover:text-white transition-colors">
                     I&apos;m a natural fixer and love jumping into the weeds, even when I should let others own the problem - help me spot when I&apos;m doing this
@@ -92,13 +92,14 @@ export default function Home() {
                 <h3 className="text-2xl font-semibold mb-6 text-white">What I&apos;m Building</h3>
                 <ul className="space-y-4 text-gray-300">
                   <li className="pl-6 border-accent hover:text-white transition-colors">
-                    Creating technical products that solve genuine problems with AI while learning to build alongside the teams I lead
+                    For the past 8 years, I&apos;ve been creating technical products that solve genuine problems with data. Now I&apos;m learning to build alongside the teams I lead
                   </li>
                   <li className="pl-6 border-accent hover:text-white transition-colors">
-                    Started with this portfolio site to learn fundamentals, now building a job aggregator using data pipelines and LLM classification to analyse market demand for job seekers
+                    I started with this portfolio site to learn coding fundamentals, now I&apos;m building a job aggregator using LLM classification and a complete 
+                    data pipeline to analyse market demand for job seekers
                   </li>
                   <li className="pl-6 border-accent hover:text-white transition-colors">
-                    Focused on analytics and self-service data, where my experience is deepest and AI can add real value
+                    My focus is on analytics, and self-service data, where my experience is deepest and AI automation can add real value
                   </li>
                 </ul>
               </div>
@@ -140,13 +141,13 @@ export default function Home() {
               <p className="text-gray-400 mb-6 text-sm">Global Event Management SaaS, 60K+ users, 50 countries</p>
               <ul className="space-y-3 text-gray-300">
                 <li className="pl-6 border-accent hover:text-white transition-colors">
-                  Launched data strategy and embedded analytics products, unlocking <strong className="text-white">$2.5M in ARR</strong> and reaching 100 enterprise clients
+                  Launched customer data strategy and embedded analytics products, targeting <strong className="text-white">$2.5M in ARR</strong> and across 100 enterprise clients
                 </li>
                 <li className="pl-6 border-accent hover:text-white transition-colors">
-                  Developed customer benchmarking tools with LLM driven event taxonomy & classifier exceeding <strong className="text-white">0.85 F1 scoring</strong>
+                  Developed customer benchmarking and classification tools with AI driven event taxonomy & classifier exceeding <strong className="text-white">0.85 F1 scoring</strong>
                 </li>
                 <li className="pl-6 border-accent hover:text-white transition-colors">
-                  Drove internal AI enablement using GPT tools, reducing discovery time by <strong className="text-white">25%</strong>
+                  Drove internal AI enablement using LLM tools, reducing answer discovery time by <strong className="text-white">25%</strong>
                 </li>
               </ul>
             </div>
@@ -163,13 +164,10 @@ export default function Home() {
               <p className="text-gray-400 mb-6 text-sm">Series C Fintech, 200+ employees, £70M+ raised</p>
               <ul className="space-y-3 text-gray-300">
                 <li className="pl-6 border-accent hover:text-white transition-colors">
-                  Directed data product strategy; reported to Chief Product Officer
+                  Led data product strategy, whilst managing <strong className="text-white">15-member</strong> cross-functional data organization, 5 direct reports (PMs, Data Scientists)
                 </li>
                 <li className="pl-6 border-accent hover:text-white transition-colors">
                   Achieved <strong className="text-white">£100K+ in annual savings</strong> through platform restructuring
-                </li>
-                <li className="pl-6 border-accent hover:text-white transition-colors">
-                  Managed <strong className="text-white">15-member</strong> cross-functional data organization, 5 direct reports (PMs, Data Scientists)
                 </li>
                 <li className="pl-6 border-accent hover:text-white transition-colors">
                   Increased product activation from <strong className="text-white">8% to 57%</strong> through experimentation
@@ -189,7 +187,7 @@ export default function Home() {
               <p className="text-gray-400 mb-6 text-sm">Series C D2C Events & Travel Platform, £40M+ GMV</p>
               <ul className="space-y-3 text-gray-300">
                 <li className="pl-6 border-accent hover:text-white transition-colors">
-                  Led <strong className="text-white">16-person</strong> central data team delivering analytics across 8 experience verticals
+                  Led and helped build <strong className="text-white">16-person</strong> central data team delivering analytics across 8 experience verticals
                 </li>
                 <li className="pl-6 border-accent hover:text-white transition-colors">
                   Developed CX headcount planning model, improving margins by <strong className="text-white">15%</strong>
