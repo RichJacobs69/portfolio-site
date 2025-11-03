@@ -22,7 +22,7 @@ export default function WritingPage() {
 
       <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 pb-20 py-10">
         {/* SECTION 1: CASE STUDIES - ENHANCED */}
-        <section className="mb-24">
+        <section className="mb-24 border-gray-800/50">
           <h2 className="text-4xl font-bold mb-12 gradient-text">Case Studies</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
