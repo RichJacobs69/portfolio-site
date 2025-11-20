@@ -9,6 +9,7 @@ export interface WritingPiece {
     outcome?: string; // Only for case studies
     readingTime: string;
     published: boolean;
+    publishedDate?: string; // Format: "21-November-2025"
   }
   
   export const writingPieces: WritingPiece[] = [
@@ -54,6 +55,16 @@ export interface WritingPiece {
       published: false,
     },
     // ARTICLES
+    {
+      slug: 'prioritisation-framework',
+      title: 'A Prioritisation Framework That Actually Works for Data Teams',
+      description: 'A walktrough with realworld examples of how to effectively prioritise initiatives and products.',
+      tag: 'Product Leadership',
+      type: 'article',
+      readingTime: '11 min',
+      published: true,
+      publishedDate: '21-November-2025',
+    },
     {
       slug: 'brag-document',
       title: 'The Brag Document: Helping Your Team Advocate for Themselves',
