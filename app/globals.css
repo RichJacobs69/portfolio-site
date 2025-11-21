@@ -1,27 +1,28 @@
 @import "tailwindcss";
 
 :root {
+  /* DARK MODE (DEFAULT) */
   --background: #0a0a0a;
   --foreground: #ededed;
-  
+
   /* Container widths */
   --container-sm: 1024px;
   --container-md: 1280px;
   --container-lg: 1536px;
-  
+
   /* Spacing */
   --section-padding-y: 5rem;
   --section-padding-x: 1.5rem;
-  
+
   /* Colors */
   --card-bg: #1a1a1a;
   --border-color: rgba(42, 42, 42, 1);
   --border-opacity: 0.5;
-  
+
   /* Hero gradient */
-  --hero-gradient: linear-gradient(to bottom right, rgba(99, 102, 241, 0.2), transparent, rgba(139, 92, 246, 0.2));
-  --hero-gradient-subtle: linear-gradient(to bottom, rgba(99, 102, 241, 0.05), transparent);
-  --hero-gradient-footer: linear-gradient(to bottom right, rgba(99, 102, 241, 0.1), transparent, rgba(139, 92, 246, 0.1));
+  --hero-gradient: linear-gradient(to bottom right, rgba(132, 204, 22, 0.2), transparent, rgba(16, 185, 129, 0.2));
+  --hero-gradient-subtle: linear-gradient(to bottom, rgba(132, 204, 22, 0.05), transparent);
+  --hero-gradient-footer: linear-gradient(to bottom right, rgba(132, 204, 22, 0.1), transparent, rgba(16, 185, 129, 0.1));
 }
 
 @theme inline {
@@ -43,17 +44,22 @@ body {
 
 /* Gradient Text Utility */
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #84cc16 0%, #10b981 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .gradient-text-blue {
-  background: linear-gradient(135deg, #4f46e5 0%, #06b6d4 100%);
+  background: linear-gradient(135deg, #84cc16 0%, #10b981 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
+}
+
+/* Lime accent color for highlighting (replaces blue) */
+.text-lime-accent {
+  color: #84cc16;
 }
 
 /* Card Hover Effects */
@@ -72,7 +78,7 @@ body {
 }
 
 .glow-hover:hover {
-  box-shadow: 0 0 20px rgba(99, 102, 241, 0.3), 0 0 40px rgba(99, 102, 241, 0.15);
+  box-shadow: 0 0 20px rgba(132, 204, 22, 0.3), 0 0 40px rgba(132, 204, 22, 0.15);
   transform: scale(1.02);
 }
 
@@ -80,15 +86,15 @@ body {
 .border-gradient {
   position: relative;
   border: 1px solid transparent;
-  background: 
+  background:
     linear-gradient(to right, rgba(42, 42, 42, 1), rgba(42, 42, 42, 1)) padding-box,
-    linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3)) border-box;
+    linear-gradient(135deg, rgba(132, 204, 22, 0.3), rgba(16, 185, 129, 0.3)) border-box;
 }
 
 .border-gradient:hover {
-  background: 
+  background:
     linear-gradient(to right, rgba(42, 42, 42, 1), rgba(42, 42, 42, 1)) padding-box,
-    linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5)) border-box;
+    linear-gradient(135deg, rgba(132, 204, 22, 0.5), rgba(16, 185, 129, 0.5)) border-box;
 }
 
 /* Animation: Fade In Up */
@@ -144,7 +150,7 @@ body {
 }
 
 .border-accent:hover {
-  border-left-color: rgb(99, 102, 241);
+  border-left-color: rgb(132, 204, 22);
 }
 
 /* Enhanced Section Backgrounds */
@@ -157,7 +163,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.03), transparent 50%);
+  background: radial-gradient(circle at 50% 0%, rgba(132, 204, 22, 0.03), transparent 50%);
   pointer-events: none;
 }
 
@@ -282,22 +288,22 @@ body {
 .card-standard:hover {
   transform: translateY(-4px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-  background: 
+  background:
     linear-gradient(to right, var(--border-color), var(--border-color)) padding-box,
-    linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(139, 92, 246, 0.5)) border-box;
+    linear-gradient(135deg, rgba(132, 204, 22, 0.5), rgba(16, 185, 129, 0.5)) border-box;
 }
 
 /* Button Patterns */
 .btn-primary {
   padding: 0.75rem 2rem;
-  background: #4f46e5;
+  background: #84cc16;
   border-radius: 0.5rem;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-weight: 500;
 }
 
 .btn-primary:hover {
-  background: #4338ca;
+  background: #65a30d;
 }
 
 .btn-secondary {
@@ -309,8 +315,8 @@ body {
 }
 
 .btn-secondary:hover {
-  border-color: #4f46e5;
-  background: rgba(79, 70, 229, 0.05);
+  border-color: #84cc16;
+  background: rgba(132, 204, 22, 0.05);
 }
 
 /* List Item Pattern */
@@ -321,7 +327,7 @@ body {
 }
 
 .list-item-accent:hover {
-  border-left-color: rgb(99, 102, 241);
+  border-left-color: rgb(132, 204, 22);
   color: white;
 }
 
@@ -329,10 +335,10 @@ body {
 .badge-default {
   font-size: 0.75rem;
   padding: 0.25rem 0.75rem;
-  background: rgba(79, 70, 229, 0.1);
-  color: rgba(199, 210, 254, 1);
+  background: rgba(132, 204, 22, 0.1);
+  color: rgba(220, 252, 231, 1);
   border-radius: 9999px;
-  border: 1px solid rgba(79, 70, 229, 0.2);
+  border: 1px solid rgba(132, 204, 22, 0.2);
   font-weight: 500;
 }
 
@@ -368,11 +374,11 @@ body {
 }
 
 .markdown-content a {
-  @apply text-blue-400 hover:text-blue-300 underline;
+  @apply text-lime-400 hover:text-lime-300 underline;
 }
 
 .markdown-content code {
-  @apply bg-[#1a1a1a] px-2 py-1 rounded text-sm text-blue-300;
+  @apply bg-[#1a1a1a] px-2 py-1 rounded text-sm text-lime-300;
 }
 
 .markdown-content pre {

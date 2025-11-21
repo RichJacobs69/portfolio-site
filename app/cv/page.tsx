@@ -4,7 +4,7 @@ export default function CV() {
       {/* Hero Section - ENHANCED */}
       <section className="relative w-full overflow-hidden">
   {/* Full-width gradient background */}
-  <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/20 via-transparent to-purple-950/20"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-lime-950/20 via-transparent to-emerald-950/20"></div>
   
   {/* Content constrained */}
   <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-15 relative z-10 animate-fade-in-up">
@@ -54,7 +54,7 @@ export default function CV() {
             <div className="bg-[#1a1a1a] border-gradient rounded-xl p-8">
               <div className="mb-4">
                 <h3 className="text-2xl font-semibold text-white mb-2">Senior Product Manager</h3>
-                <p className="text-indigo-400 font-medium">Momentus Technologies • Mar 2024 - Oct 2025</p>
+                <p className="text-lime-400 font-medium">Momentus Technologies • Mar 2024 - Oct 2025</p>
                 <p className="text-sm text-gray-500 mt-1">Global Event Management SaaS, 60K+ users, 50 countries</p>
               </div>
               <ul className="space-y-3 text-gray-300">
@@ -74,7 +74,7 @@ export default function CV() {
             <div className="bg-[#1a1a1a] border-gradient rounded-xl p-8">
               <div className="mb-4">
                 <h3 className="text-2xl font-semibold text-white mb-2">Data Platform & Analytics Product Lead</h3>
-                <p className="text-indigo-400 font-medium">Pollinate • Aug 2022 - Mar 2024</p>
+                <p className="text-lime-400 font-medium">Pollinate • Aug 2022 - Mar 2024</p>
                 <p className="text-sm text-gray-500 mt-1">Series C Fintech, 200+ employees, £70M+ raised</p>
               </div>
               <ul className="space-y-3 text-gray-300">
@@ -97,7 +97,7 @@ export default function CV() {
             <div className="bg-[#1a1a1a] border-gradient rounded-xl p-8">
               <div className="mb-4">
                 <h3 className="text-2xl font-semibold text-white mb-2">Product Lead, Data & Analytics</h3>
-                <p className="text-indigo-400 font-medium">Pollen • Aug 2020 - Aug 2022</p>
+                <p className="text-lime-400 font-medium">Pollen • Aug 2020 - Aug 2022</p>
                 <p className="text-sm text-gray-500 mt-1">Series C D2C Events & Travel Platform, £40M+ GMV</p>
               </div>
               <ul className="space-y-3 text-gray-300">
@@ -117,7 +117,7 @@ export default function CV() {
             <div className="bg-[#1a1a1a] border-gradient rounded-xl p-8">
               <div className="mb-4">
                 <h3 className="text-2xl font-semibold text-white mb-2">Lead Product Manager</h3>
-                <p className="text-indigo-400 font-medium">Tesco • Nov 2019 - Aug 2020 (Contract)</p>
+                <p className="text-lime-400 font-medium">Tesco • Nov 2019 - Aug 2020 (Contract)</p>
                 <p className="text-sm text-gray-500 mt-1">FTSE 100 Retailer, 330,000+ employees globally</p>
               </div>
               <ul className="space-y-3 text-gray-300">

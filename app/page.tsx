@@ -6,7 +6,7 @@ export default function Home() {
       {/* Hero Section - ENHANCED */}
       <section className="relative w-full overflow-hidden">
         {/* Full-width gradient background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/20 via-transparent to-purple-950/20"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-lime-950/20 via-transparent to-emerald-950/20"></div>
         
         {/* Content constrained */}
         <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-15 relative z-10">
@@ -19,15 +19,15 @@ export default function Home() {
             Senior Product Manager specialising in data intensive products. Currently learning to code on the side whilst building technical products that deliver real outcomes.
           </p>
           <div className="flex gap-4 mt-8 animate-fade-in-up-delay-2">
-            <a 
-              href="#contact" 
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all duration-300 font-medium text-center"
+            <a
+              href="#contact"
+              className="px-8 py-3 bg-lime-500 hover:bg-lime-600 rounded-lg transition-all duration-300 font-medium text-center text-black"
             >
               Get in touch
             </a>
-            <Link 
-              href="/writing" 
-              className="px-8 py-3 bg-indigo-600 hover:bg-indigo-700 rounded-lg transition-all duration-300 font-medium text-center"
+            <Link
+              href="/writing"
+              className="px-8 py-3 bg-lime-500 hover:bg-lime-600 rounded-lg transition-all duration-300 font-medium text-center text-black"
             >
               My Writing
             </Link>
@@ -37,10 +37,10 @@ export default function Home() {
   <div className="order-1 lg:order-2 relative animate-fade-in-up-delay-1">
     <div className="relative max-w-xs mx-auto lg:max-w-md lg:ml-auto">
       {/* Glow effect behind image */}
-      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/30 to-purple-500/30 rounded-2xl blur-3xl transform scale-105"></div>
-      
+      <div className="absolute inset-0 bg-gradient-to-br from-lime-500/30 to-emerald-500/30 rounded-2xl blur-3xl transform scale-105"></div>
+
       {/* Gradient border wrapper */}
-      <div className="relative p-1 bg-gradient-to-br from-indigo-500 via-purple-500 to-indigo-500 rounded-2xl">
+      <div className="relative p-1 bg-gradient-to-br from-lime-500 via-emerald-500 to-lime-500 rounded-2xl">
         <img 
           src="/images/rich-hero.jpg" 
           alt="Rich Jacobs"
@@ -57,7 +57,7 @@ export default function Home() {
       {/* Personal README Section - ENHANCED */}
       <section className="relative w-full border-t border-gray-800/50 overflow-hidden">
         {/* Full-width subtle gradient */}
-        <div className="absolute inset-0 bg-gradient-to-b from-indigo-950/5 via-transparent to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-lime-950/5 via-transparent to-transparent"></div>
         
         <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-10 relative z-10">
           <div className="max-w-6xl">
@@ -134,7 +134,7 @@ export default function Home() {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h3 className="text-2xl font-semibold text-white mb-2">Senior Product Manager</h3>
-                  <p className="text-indigo-400 font-medium">Momentus Technologies</p>
+                  <p className="text-lime-400 font-medium">Momentus Technologies</p>
                 </div>
                 <span className="text-gray-500 text-sm">Mar 2024 - Oct 2025</span>
               </div>
@@ -157,7 +157,7 @@ export default function Home() {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h3 className="text-2xl font-semibold text-white mb-2">Data Platform & Analytics Product Lead</h3>
-                  <p className="text-indigo-400 font-medium">Pollinate</p>
+                  <p className="text-lime-400 font-medium">Pollinate</p>
                 </div>
                 <span className="text-gray-500 text-sm">Aug 2022 - Mar 2024</span>
               </div>
@@ -180,7 +180,7 @@ export default function Home() {
               <div className="flex justify-between items-start mb-4">
                 <div>
                   <h3 className="text-2xl font-semibold text-white mb-2">Product Lead, Data & Analytics</h3>
-                  <p className="text-indigo-400 font-medium">Pollen</p>
+                  <p className="text-lime-400 font-medium">Pollen</p>
                 </div>
                 <span className="text-gray-500 text-sm">Aug 2020 - Aug 2022</span>
               </div>
@@ -210,26 +210,26 @@ export default function Home() {
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-white">Core Competencies</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-indigo-500/20 rounded-lg text-gray-300 hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all">Data Product Strategy</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-indigo-500/20 rounded-lg text-gray-300 hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all">Modern Data Stack Architecture</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-indigo-500/20 rounded-lg text-gray-300 hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all">ML & LLM Integration</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-indigo-500/20 rounded-lg text-gray-300 hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all">Self-Service Analytics</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-indigo-500/20 rounded-lg text-gray-300 hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all">Embedded Analytics</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-indigo-500/20 rounded-lg text-gray-300 hover:border-indigo-500/40 hover:bg-indigo-500/5 transition-all">Data Governance</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-lime-500/20 rounded-lg text-gray-300 hover:border-lime-500/40 hover:bg-lime-500/5 transition-all">Data Product Strategy</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-lime-500/20 rounded-lg text-gray-300 hover:border-lime-500/40 hover:bg-lime-500/5 transition-all">Modern Data Stack Architecture</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-lime-500/20 rounded-lg text-gray-300 hover:border-lime-500/40 hover:bg-lime-500/5 transition-all">ML & LLM Integration</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-lime-500/20 rounded-lg text-gray-300 hover:border-lime-500/40 hover:bg-lime-500/5 transition-all">Self-Service Analytics</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-lime-500/20 rounded-lg text-gray-300 hover:border-lime-500/40 hover:bg-lime-500/5 transition-all">Embedded Analytics</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-lime-500/20 rounded-lg text-gray-300 hover:border-lime-500/40 hover:bg-lime-500/5 transition-all">Data Governance</span>
               </div>
             </div>
 
             <div>
               <h3 className="text-2xl font-semibold mb-6 text-white">Data & Analytics</h3>
               <div className="flex flex-wrap gap-3">
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-purple-500/20 rounded-lg text-gray-300 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all">Snowflake</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-purple-500/20 rounded-lg text-gray-300 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all">dbt</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-purple-500/20 rounded-lg text-gray-300 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all">Databricks</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-purple-500/20 rounded-lg text-gray-300 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all">Tableau</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-purple-500/20 rounded-lg text-gray-300 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all">Looker</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-purple-500/20 rounded-lg text-gray-300 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all">Power BI</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-purple-500/20 rounded-lg text-gray-300 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all">Amplitude</span>
-                <span className="px-4 py-2 bg-[#1a1a1a] border border-purple-500/20 rounded-lg text-gray-300 hover:border-purple-500/40 hover:bg-purple-500/5 transition-all">Mixpanel</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-emerald-500/20 rounded-lg text-gray-300 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">Snowflake</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-emerald-500/20 rounded-lg text-gray-300 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">dbt</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-emerald-500/20 rounded-lg text-gray-300 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">Databricks</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-emerald-500/20 rounded-lg text-gray-300 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">Tableau</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-emerald-500/20 rounded-lg text-gray-300 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">Looker</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-emerald-500/20 rounded-lg text-gray-300 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">Power BI</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-emerald-500/20 rounded-lg text-gray-300 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">Amplitude</span>
+                <span className="px-4 py-2 bg-[#1a1a1a] border border-emerald-500/20 rounded-lg text-gray-300 hover:border-emerald-500/40 hover:bg-emerald-500/5 transition-all">Mixpanel</span>
               </div>
             </div>
 
@@ -258,14 +258,14 @@ export default function Home() {
             <div className="bg-[#1a1a1a] border-gradient rounded-xl p-8 card-hover">
               <div className="flex items-start justify-between mb-4">
                 <h3 className="text-2xl font-semibold text-white">Job Market Aggregator</h3>
-                <span className="text-xs font-semibold px-3 py-1 bg-indigo-500/10 text-indigo-400 rounded-full border border-indigo-500/20">In Progress</span>
+                <span className="text-xs font-semibold px-3 py-1 bg-lime-500/10 text-lime-400 rounded-full border border-lime-500/20">In Progress</span>
               </div>
               <p className="text-gray-300 mb-4 leading-relaxed">
                 LLM-powered job aggregator using data pipelines and classification to analyze market demand patterns
               </p>
               <div className="flex gap-2 mt-4">
-                <span className="text-xs px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full border border-indigo-500/20">LLM</span>
-                <span className="text-xs px-3 py-1 bg-indigo-500/10 text-indigo-300 rounded-full border border-indigo-500/20">Data Pipelines</span>
+                <span className="text-xs px-3 py-1 bg-lime-500/10 text-lime-300 rounded-full border border-lime-500/20">LLM</span>
+                <span className="text-xs px-3 py-1 bg-lime-500/10 text-lime-300 rounded-full border border-lime-500/20">Data Pipelines</span>
               </div>
             </div>
 

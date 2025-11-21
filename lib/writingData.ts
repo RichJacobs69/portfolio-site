@@ -57,7 +57,7 @@ export interface WritingPiece {
     // ARTICLES
     {
       slug: 'prioritisation-framework',
-      title: 'A Prioritisation Framework That Actually Works for Data Teams',
+      title: 'A Prioritisation Framework That Actually Works For Data Teams',
       description: 'A walktrough with realworld examples of how to effectively prioritise initiatives and products.',
       tag: 'Product Leadership',
       type: 'article',

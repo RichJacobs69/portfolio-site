@@ -86,7 +86,7 @@ export default async function WritingArticlePage({
         {/* Back Button */}
         <Link
           href="/writing"
-          className="inline-flex items-center text-gray-400 hover:text-[#60a5fa] mb-8 transition-colors"
+          className="inline-flex items-center text-gray-400 hover:text-lime-400 mb-8 transition-colors"
         >
           ← Back to Writing
         </Link>
@@ -108,7 +108,7 @@ export default async function WritingArticlePage({
             {piece.outcome && (
               <>
                 <span>•</span>
-                <span className="text-[#60a5fa] font-semibold">{piece.outcome}</span>
+                <span className="text-lime-400 font-semibold">{piece.outcome}</span>
               </>
             )}
           </div>
@@ -145,7 +145,7 @@ export default async function WritingArticlePage({
               </p>
               <p className="text-sm text-gray-500">
                 Check back soon, or{' '}
-                <Link href="/writing" className="text-[#60a5fa] hover:underline">
+                <Link href="/writing" className="text-lime-400 hover:underline">
                   explore other writing
                 </Link>
                 .

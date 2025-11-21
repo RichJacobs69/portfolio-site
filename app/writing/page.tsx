@@ -7,7 +7,7 @@ export default function WritingPage() {
     {/* Hero Header - ENHANCED */}
 <div className="relative w-full overflow-hidden">
   {/* Full-width gradient background */}
-  <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/20 via-transparent to-purple-950/20"></div>
+  <div className="absolute inset-0 bg-gradient-to-br from-lime-950/20 via-transparent to-emerald-950/20"></div>
   
   {/* Content constrained */}
   <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-15 relative z-10">
@@ -33,7 +33,7 @@ export default function WritingPage() {
                 className="bg-[#1a1a1a] border-gradient rounded-xl p-8 card-hover group"
               >
                 {/* Title */}
-                <h3 className="text-2xl font-semibold mb-4 group-hover:text-indigo-400 transition-colors">
+                <h3 className="text-2xl font-semibold mb-4 group-hover:text-lime-400 transition-colors">
                   {piece.title}
                 </h3>
 
@@ -49,10 +49,10 @@ export default function WritingPage() {
                       {piece.outcome}
                     </div>
                     <div className="text-xs text-gray-500 mt-2 font-medium">
-                      Coming Soon • {piece.readingTime} read
+                      {piece.publishedDate || 'Coming Soon'} • {piece.readingTime} read
                     </div>
                   </div>
-                  <div className="text-sm text-gray-400 group-hover:text-indigo-400 transition-colors">
+                  <div className="text-sm text-gray-400 group-hover:text-lime-400 transition-colors">
                     Read case study →
                   </div>
                 </div>
@@ -76,16 +76,16 @@ export default function WritingPage() {
                   <div className="flex-1">
                     {/* Tag and Meta */}
                     <div className="flex items-center gap-3 mb-3">
-                      <span className="text-xs px-3 py-1 bg-indigo-500/10 rounded-full text-indigo-300 border border-indigo-500/20 font-medium">
+                      <span className="text-xs px-3 py-1 bg-lime-500/10 rounded-full text-lime-300 border border-lime-500/20 font-medium">
                         {piece.tag}
                       </span>
                       <span className="text-xs text-gray-500 font-medium">
-                        Coming Soon • {piece.readingTime} read
+                        {piece.publishedDate || 'Coming Soon'} • {piece.readingTime} read
                       </span>
                     </div>
 
                     {/* Title */}
-                    <h3 className="text-xl font-semibold mb-3 group-hover:text-indigo-400 transition-colors">
+                    <h3 className="text-xl font-semibold mb-3 group-hover:text-lime-400 transition-colors">
                       {piece.title}
                     </h3>
 
@@ -96,7 +96,7 @@ export default function WritingPage() {
                   </div>
 
                   {/* Arrow */}
-                  <div className="ml-8 text-2xl text-gray-500 group-hover:text-indigo-400 transition-colors group-hover:translate-x-1 transform duration-300">
+                  <div className="ml-8 text-2xl text-gray-500 group-hover:text-lime-400 transition-colors group-hover:translate-x-1 transform duration-300">
                     →
                   </div>
                 </div>
