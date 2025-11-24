@@ -396,3 +396,27 @@ body {
 .markdown-content hr {
   @apply border-gray-700 my-8;
 }
+
+.markdown-content table {
+  @apply w-full border-collapse mb-6 mt-4;
+}
+
+.markdown-content thead {
+  @apply bg-[#1a1a1a];
+}
+
+.markdown-content th {
+  @apply border border-gray-700 px-4 py-3 text-left font-semibold text-white;
+}
+
+.markdown-content td {
+  @apply border border-gray-700 px-4 py-3 text-gray-300;
+}
+
+.markdown-content tbody tr {
+  @apply hover:bg-[#1a1a1a]/50 transition-colors;
+}
+
+.markdown-content tbody tr:nth-child(even) {
+  @apply bg-[#1a1a1a]/30;
+}

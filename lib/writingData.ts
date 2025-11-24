@@ -66,6 +66,16 @@ export interface WritingPiece {
       publishedDate: '21-November-2025',
     },
     {
+      slug: 'growth-mindset',
+      title: 'How to Hire for a Growth Mindset',
+      description: 'What is a growth mindset, why is it important, and how to hire for it.',
+      tag: 'Building Teams',
+      type: 'article',
+      readingTime: '8 min',
+      published: true,
+      publishedDate: '25-November-2025',
+    },
+    {
       slug: 'brag-document',
       title: 'The Brag Document: Helping Your Team Advocate for Themselves',
       description: 'A practical framework for combating imposter syndrome and building promotion-ready cases. Includes template.',

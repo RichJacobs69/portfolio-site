@@ -109,7 +109,14 @@ Effort also includes cost - tooling, vendor contracts, compute, engineering time
 
 Here are the dimensions that consistently matter when prioritising data products:
 
-<!-- component: framework-table -->
+| Dimension | Description | Max Points |
+|-----------|-------------|------------|
+| User Impact | Does this solve a real user need? | 15 |
+| Adoption | Will users actually use it? | 15 |
+| Company Impact | Does this move company metrics? | 50 |
+| Natural Ownership | Who maintains this long-term? | 20 |
+| Effort (inverse) | How much work is required? | 100 |
+| TOTAL | | 200 |
 
 These weights reflect what I have found to be true across multiple companies: **Company Impact matters most** (50 points), followed by Effort as a constraint (100 points inverse), with User Impact, Adoption, and Natural Ownership providing important context (15, 15, and 20 points respectively).
 
@@ -127,7 +134,14 @@ Developing LLMs for internal efficiency was an interesting but uncertain opportu
 
 **The outcome:**
 
-<!-- component: project-comparison -->
+| Dimension | Customer Benchmarking Platform | Score | Internal Sales Agent | Score |
+|-----------|-------------------------------|-------|---------------------|-------|
+| User Impact | Customer-facing product solving critical competitive need | 14/15 | Internal tool, marginal improvement over existing tools | 6/15 |
+| Adoption | Differentiated feature expanding addressable market | 12/15 | Compatible with general AI assistants, requires behavior change | 8/15 |
+| Company Impact | Direct revenue stream (ARR) & strategic competitive advantage | 48/50 | Zero revenue, internal enablement only | 15/50 |
+| Natural Ownership | Clear data team ownership, productized infrastructure | 17/20 | Soft to product team as an experiment, prototype not production | 8/20 |
+| Effort (inverse) | 12 weeks, 10 people, enterprise-grade development | 65/100 | 1 week, solo build, no-code platform | 92/100 |
+| TOTAL | | 156/200 | | 127/200 |
 
 The benchmarking platform scored 156/200 and became our primary focus, with full team commitment and production-grade development. This was a roadmap item.
 
