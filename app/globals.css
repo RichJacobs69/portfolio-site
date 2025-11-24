@@ -399,6 +399,7 @@ body {
 
 .markdown-content table {
   @apply w-full border-collapse mb-6 mt-4;
+  table-layout: fixed;
 }
 
 .markdown-content thead {
@@ -409,8 +410,52 @@ body {
   @apply border border-gray-700 px-4 py-3 text-left font-semibold text-white;
 }
 
+/* Default column widths for 3-column tables (Theme/Question/Signals, Dimension/Description/Points) */
+.markdown-content th:nth-child(1),
+.markdown-content td:nth-child(1) {
+  width: 20%;
+}
+
+.markdown-content th:nth-child(2),
+.markdown-content td:nth-child(2) {
+  width: 45%;
+}
+
+.markdown-content th:nth-child(3),
+.markdown-content td:nth-child(3) {
+  width: 35%;
+}
+
+/* Override for 5-column tables (Project Comparison) */
+.markdown-content table:has(th:nth-child(5)) th:nth-child(1),
+.markdown-content table:has(th:nth-child(5)) td:nth-child(1) {
+  width: 15%;
+}
+
+.markdown-content table:has(th:nth-child(5)) th:nth-child(2),
+.markdown-content table:has(th:nth-child(5)) td:nth-child(2) {
+  width: 30%;
+}
+
+.markdown-content table:has(th:nth-child(5)) th:nth-child(3),
+.markdown-content table:has(th:nth-child(5)) td:nth-child(3) {
+  width: 10%;
+}
+
+.markdown-content table:has(th:nth-child(5)) th:nth-child(4),
+.markdown-content table:has(th:nth-child(5)) td:nth-child(4) {
+  width: 30%;
+}
+
+.markdown-content table:has(th:nth-child(5)) th:nth-child(5),
+.markdown-content table:has(th:nth-child(5)) td:nth-child(5) {
+  width: 15%;
+}
+
 .markdown-content td {
   @apply border border-gray-700 px-4 py-3 text-gray-300;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .markdown-content tbody tr {
