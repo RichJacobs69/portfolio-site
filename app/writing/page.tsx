@@ -24,13 +24,13 @@ export default function WritingPage() {
         {/* SECTION 1: CASE STUDIES - ENHANCED */}
         <section className="mb-24 border-gray-800/50">
           <h2 className="text-4xl font-bold mb-12 gradient-text">Case Studies</h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+          <div className="space-y-4">
             {caseStudies.map((piece) => (
-              <Link 
-                key={piece.slug} 
+              <Link
+                key={piece.slug}
                 href={`/writing/${piece.slug}`}
-                className="bg-[#1a1a1a] border-gradient rounded-xl p-8 card-hover group"
+                className="bg-[#1a1a1a] border-gradient rounded-xl p-8 card-hover group block"
               >
                 {/* Title */}
                 <h3 className="text-2xl font-semibold mb-4 group-hover:text-lime-400 transition-colors">
@@ -43,7 +43,7 @@ export default function WritingPage() {
                 </p>
 
                 {/* Outcome and Meta */}
-                <div className="flex items-center justify-between pt-6 border-t border-gray-800">
+                <div className="flex items-center justify-between pt-6 border-t border-lime-500/30">
                   <div className="flex flex-col">
                     <div className="text-3xl font-bold gradient-text-blue">
                       {piece.outcome}

@@ -5,7 +5,11 @@ import { remark } from 'remark';
 import html from 'remark-html';
 import remarkGfm from 'remark-gfm';
 
-const writingDirectory = path.join(process.cwd(), 'content/writing');
+// Resolve content directory from either repo root or project root (dev server cwd can differ)
+const projectRoot = fs.existsSync(path.join(process.cwd(), 'content', 'writing'))
+  ? process.cwd()
+  : path.join(process.cwd(), 'portfolio-site');
+const writingDirectory = path.join(projectRoot, 'content', 'writing');
 
 // Get a single markdown file by slug
 export async function getWritingBySlug(slug: string) {

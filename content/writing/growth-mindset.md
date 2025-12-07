@@ -3,9 +3,6 @@ title: "How to Hire for a Growth Mindset"
 readingTime: "8 min"
 tag: "Leadership"
 ---
-
-# How to Hire for a Growth Mindset
-
 Attracting and retaining talent is an expensive business. On top of the £6K you'll typically spend making the hire, the cost of having to exit people that were not the right fit is thought to cost anything up to £25K, and you'll then be repeating the hiring process once again.
 
 I want to talk about why we should be spending more time assessing how people think about their own growth and why this is critical to success. We'll then go into how you can practically assess for this during the interview process, all the while ensuring that the candidate comes away from interviews with a positive experience.

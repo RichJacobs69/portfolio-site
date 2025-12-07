@@ -2,6 +2,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { getWritingBySlug, getAllWritingSlugs, writingExists } from '@/lib/markdown';
 import { writingPieces } from '@/lib/writingData';
+import Timeline from '@/components/Timeline';
+import { productLedTimelineData } from '@/lib/timelineData';
 
 // Generate static params for all writing pieces
 export async function generateStaticParams() {
@@ -69,10 +71,31 @@ export default async function WritingArticlePage({
         {/* Article Content */}
         <article className="prose prose-invert prose-lg max-w-none">
           {markdownContent ? (
-            <div
-              className="markdown-content"
-              dangerouslySetInnerHTML={{ __html: markdownContent.contentHtml }}
-            />
+            <>
+              {slug === 'product-led-data-teams' && markdownContent.contentHtml.includes('<h3>Q1 2021</h3>') ? (
+                // Split content and insert timeline before Q1 2021
+                <>
+                  <div
+                    className="markdown-content"
+                    dangerouslySetInnerHTML={{
+                      __html: markdownContent.contentHtml.split('<h3>Q1 2021</h3>')[0],
+                    }}
+                  />
+                  <Timeline items={productLedTimelineData} title="Transformation Timeline" />
+                  <div
+                    className="markdown-content"
+                    dangerouslySetInnerHTML={{
+                      __html: '<h3>Q1 2021</h3>' + markdownContent.contentHtml.split('<h3>Q1 2021</h3>')[1],
+                    }}
+                  />
+                </>
+              ) : (
+                <div
+                  className="markdown-content"
+                  dangerouslySetInnerHTML={{ __html: markdownContent.contentHtml }}
+                />
+              )}
+            </>
           ) : (
             <div className="bg-[#1a1a1a] border border-[#2a2a2a] rounded-lg p-8 text-center">
               <h2 className="text-3xl font-bold mb-4">Coming Soon</h2>
