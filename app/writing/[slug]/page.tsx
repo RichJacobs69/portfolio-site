@@ -72,20 +72,20 @@ export default async function WritingArticlePage({
         <article className="prose prose-invert prose-lg max-w-none">
           {markdownContent ? (
             <>
-              {slug === 'product-led-data-teams' && markdownContent.contentHtml.includes('<h3>Q1 2021</h3>') ? (
+              {slug === 'product-led-data-teams' && markdownContent.contentHtml.includes('<h2>Q1 2021</h2>') ? (
                 // Split content and insert timeline before Q1 2021
                 <>
                   <div
                     className="markdown-content"
                     dangerouslySetInnerHTML={{
-                      __html: markdownContent.contentHtml.split('<h3>Q1 2021</h3>')[0],
+                      __html: markdownContent.contentHtml.split('<h2>Q1 2021</h2>')[0],
                     }}
                   />
                   <Timeline items={productLedTimelineData} title="Transformation Timeline" />
                   <div
                     className="markdown-content"
                     dangerouslySetInnerHTML={{
-                      __html: '<h3>Q1 2021</h3>' + markdownContent.contentHtml.split('<h3>Q1 2021</h3>')[1],
+                      __html: '<h2>Q1 2021</h2>' + markdownContent.contentHtml.split('<h2>Q1 2021</h2>')[1],
                     }}
                   />
                 </>
