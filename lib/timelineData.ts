@@ -7,11 +7,11 @@ export const productLedTimelineData: TimelineItem[] = [
   },
   {
     quarter: 'Q1 2021',
-    milestone: 'Decommissioned #data-clinic; established domain channels',
+    milestone: 'Began Decommissioning #data-clinic; established domain-focused channels',
   },
   {
     quarter: 'Q2 2021',
-    milestone: 'Embedded first analysts; analyzed query patterns',
+    milestone: 'Analysed query patterns; Embedded first analysts; ',
   },
   {
     quarter: 'Q3 2021',

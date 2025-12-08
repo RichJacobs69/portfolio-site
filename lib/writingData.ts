@@ -47,8 +47,8 @@ export interface WritingPiece {
     },
     {
       slug: 'data-platform-restructure',
-      title: 'Data Platform Restructure & Cost Optimization',
-      description: 'Led platform modernization for fintech serving 50K SMBs, reducing costs while improving data accessibility and governance.',
+      title: 'Data Platform Restructure & Cost Optimisation',
+      description: 'Led platform modernisation for fintech serving 50K SMBs, reducing costs while improving data accessibility and governance.',
       tag: 'Data & Analytics',
       type: 'case-study',
       outcome: '£100K+ Saved',
@@ -69,7 +69,7 @@ export interface WritingPiece {
     {
       slug: 'prioritisation-framework',
       title: 'A Prioritisation Framework That Actually Works For Data Teams',
-      description: 'A walktrough with realworld examples of how to effectively prioritise initiatives and products.',
+      description: 'A walkthrough with real-world examples of how to effectively prioritise initiatives and products.',
       tag: 'Product Leadership',
       type: 'article',
       readingTime: '11 min',
@@ -115,8 +115,8 @@ export interface WritingPiece {
     },
     {
       slug: 'analytics-operating-models',
-      title: 'Centralized vs. Embedded: Choosing Your Analytics Operating Model',
-      description: 'When to centralize, when to embed, and how to evolve your model as you scale. Includes decision framework.',
+      title: 'Centralised vs. Embedded: Choosing Your Analytics Operating Model',
+      description: 'When to centralise, when to embed, and how to evolve your model as you scale. Includes decision framework.',
       tag: 'Data & Analytics',
       type: 'article',
       readingTime: '12 min',
