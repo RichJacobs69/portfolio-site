@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getSupabase } from '@/lib/supabase';
-import type { ApiResponse, TestConnectionData } from '@/lib/types/job-market';
+import type { ApiResponse, TestConnectionData } from '@/lib/types/hiring-market';
 
 export async function GET() {
   try {

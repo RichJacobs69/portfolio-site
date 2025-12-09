@@ -1,4 +1,4 @@
-// Shared types for Job Market Dashboard API
+// Shared types for Hiring Market Dashboard API
 
 export interface ApiResponse<T> {
   data: T;
