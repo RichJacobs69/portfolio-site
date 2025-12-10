@@ -1,12 +1,20 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { ApiResponse, TestConnectionData } from '@/lib/types/hiring-market';
+import type { ApiResponse, TestConnectionData, GlobalFilters as FilterState } from '@/lib/types/hiring-market';
+import GlobalFilters from './components/GlobalFilters';
+import RoleDemandChart from './components/RoleDemandChart';
 
 export default function HiringMarketPage() {
   const [connectionData, setConnectionData] = useState<TestConnectionData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [filters, setFilters] = useState<FilterState>({
+    date_range: 30,
+    city_code: 'lon',
+    job_family: 'data',
+  });
+  const [lastUpdated, setLastUpdated] = useState<string | null>(null);
 
   useEffect(() => {
     async function fetchConnectionTest() {
@@ -18,6 +26,7 @@ export default function HiringMarketPage() {
           setError(json.error);
         } else {
           setConnectionData(json.data);
+          setLastUpdated(json.meta.last_updated);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch data');
@@ -29,41 +38,18 @@ export default function HiringMarketPage() {
     fetchConnectionTest();
   }, []);
 
+  const handleFiltersChange = (newFilters: FilterState) => {
+    setFilters(newFilters);
+    // Charts will re-fetch data based on these filters
+  };
+
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Hero Section */}
-      <section className="relative w-full border-b border-gray-800/50 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-lime-950/10 via-transparent to-emerald-950/10"></div>
-        <div className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-16 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4 gradient-text">
-            Hiring Market Dashboard
-          </h1>
-          <p className="text-gray-400 text-lg leading-relaxed max-w-3xl mb-4">
-            Real-time insights into job market trends across London, NYC, and Denver.
-            Analyzing {connectionData?.enriched_jobs_count.toLocaleString() || '5,600+'} job postings
-            to help you understand role demand, skill requirements, and hiring patterns.
-          </p>
-          <a
-            href="/projects/hiring-market/api-docs"
-            className="text-lime-400 hover:text-lime-300 text-sm font-medium inline-flex items-center gap-2 transition-colors"
-          >
-            View API Documentation
-            <svg
-              className="w-4 h-4"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </a>
-        </div>
-      </section>
+      {/* Global Filters */}
+      <GlobalFilters
+        onFiltersChange={handleFiltersChange}
+        lastUpdated={lastUpdated || undefined}
+      />
 
       {/* Data Source Stats */}
       <section className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-12">
@@ -122,33 +108,9 @@ export default function HiringMarketPage() {
         )}
       </section>
 
-      {/* Coming Soon Section */}
+      {/* Charts Section */}
       <section className="max-w-4xl lg:max-w-5xl xl:max-w-6xl mx-auto px-6 py-12">
-        <h2 className="text-2xl font-bold mb-6 text-white">Interactive Visualizations</h2>
-        <div className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-8 text-center">
-          <div className="max-w-md mx-auto">
-            <div className="w-16 h-16 bg-lime-500/10 border border-lime-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-              <svg
-                className="w-8 h-8 text-lime-400"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
-                />
-              </svg>
-            </div>
-            <h3 className="text-lg font-semibold mb-2 text-white">Charts Coming Soon</h3>
-            <p className="text-gray-400 text-sm leading-relaxed">
-              Interactive charts for role demand, skills analysis, working arrangements,
-              top hiring companies, and experience level distribution will appear here.
-            </p>
-          </div>
-        </div>
+        <RoleDemandChart filters={filters} />
       </section>
 
       {/* About This Data */}

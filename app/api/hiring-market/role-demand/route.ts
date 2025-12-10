@@ -16,17 +16,20 @@ export async function GET(request: NextRequest) {
     // Build query
     let query = supabase
       .from('enriched_jobs')
-      .select('city_code, job_subfamily, last_seen_date')
+      .select('city_code, job_subfamily, job_family, last_seen_date')
       .not('city_code', 'is', null)
-      .not('job_subfamily', 'is', null);
+      .not('job_subfamily', 'is', null)
+      .not('job_family', 'is', null);
 
-    // Apply city_code filter (multi-select, case-insensitive)
-    const cityCodes = parseCommaSeparatedParam(cityCodeParam);
-    if (cityCodes) {
-      query = query.in('city_code', cityCodes);
+    // Apply city_code filter (always required now - no "all" option)
+    if (cityCodeParam) {
+      const cityCodes = parseCommaSeparatedParam(cityCodeParam);
+      if (cityCodes) {
+        query = query.in('city_code', cityCodes);
+      }
     }
 
-    // Apply job_family filter (case-insensitive)
+    // Apply job_family filter (always required now - no "all" option)
     if (jobFamilyParam) {
       const normalizedJobFamily = normalizeString(jobFamilyParam);
       query = query.eq('job_family', normalizedJobFamily);
@@ -42,31 +45,56 @@ export async function GET(request: NextRequest) {
       }
     }
 
-    // Execute query
-    const { data, error } = await query;
+    // Execute query with pagination to bypass 1,000 row limit
+    let allData: any[] = [];
+    let offset = 0;
+    const pageSize = 1000;
+    let hasMore = true;
 
-    if (error) {
-      throw new Error(`Role demand query failed: ${error.message}`);
+    while (hasMore) {
+      const { data, error } = await query.range(offset, offset + pageSize - 1);
+
+      if (error) {
+        throw new Error(`Role demand query failed: ${error.message}`);
+      }
+
+      if (data && data.length > 0) {
+        allData = allData.concat(data);
+        offset += pageSize;
+        hasMore = data.length === pageSize; // Continue if we got a full page
+      } else {
+        hasMore = false;
+      }
     }
 
     // Group and count in JavaScript
-    const grouped: Record<string, number> = {};
+    const grouped: Record<string, { job_family: string; count: number }> = {};
 
-    data?.forEach((row) => {
+    allData.forEach((row) => {
       const key = `${row.city_code}|${row.job_subfamily}`;
-      grouped[key] = (grouped[key] || 0) + 1;
+      if (!grouped[key]) {
+        grouped[key] = { job_family: row.job_family, count: 0 };
+      }
+      grouped[key].count += 1;
     });
 
     // Convert to array format
     const roleDemandData: RoleDemandData[] = Object.entries(grouped).map(
-      ([key, count]) => {
+      ([key, value]) => {
         const [city_code, job_subfamily] = key.split('|');
-        return { city_code, job_subfamily, count };
+        return { city_code, job_subfamily, job_family: value.job_family, count: value.count };
       }
     );
 
-    // Sort by count descending
-    roleDemandData.sort((a, b) => b.count - a.count);
+    // Sort by job_family first (data before product), then by count descending within each family
+    roleDemandData.sort((a, b) => {
+      // Sort by job_family first (data < product alphabetically)
+      if (a.job_family !== b.job_family) {
+        return a.job_family.localeCompare(b.job_family);
+      }
+      // Within same family, sort by count descending
+      return b.count - a.count;
+    });
 
     // Get last updated timestamp
     const { data: lastUpdated, error: lastUpdatedError } = await supabase
@@ -80,11 +108,14 @@ export async function GET(request: NextRequest) {
       throw new Error(`Last updated query failed: ${lastUpdatedError.message}`);
     }
 
+    // Calculate total job count (sum of all counts)
+    const totalJobCount = roleDemandData.reduce((sum, item) => sum + item.count, 0);
+
     const response: ApiResponse<RoleDemandData[]> = {
       data: roleDemandData,
       meta: {
         last_updated: lastUpdated?.last_seen_date || new Date().toISOString(),
-        total_records: roleDemandData.length,
+        total_records: totalJobCount,
         source: 'all',
       },
     };
