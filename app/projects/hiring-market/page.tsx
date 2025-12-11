@@ -138,7 +138,7 @@ export default function HiringMarketPage() {
               <p className="text-3xl font-bold text-white mb-1">
                 {jobSources ? jobSources.total_sources.toLocaleString() : '-'}
               </p>
-              <p className="text-xs text-gray-500">Greenhouse + Adzuna</p>
+              <p className="text-xs text-gray-500">Employer Sites & Job Aggregators</p>
             </div>
           </div>
         )}
