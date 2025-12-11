@@ -1,17 +1,25 @@
 import { NextResponse } from 'next/server';
-import { readFileSync } from 'fs';
-import { join } from 'path';
+import { getSupabase } from '@/lib/supabase';
 import type { ApiResponse, JobSourcesData } from '@/lib/types/hiring-market';
 
 export async function GET() {
   try {
-    // Read company mapping from job-analytics config
-    const configPath = join(process.cwd(), '..', 'job-analytics', 'config', 'company_ats_mapping.json');
-    const configContent = readFileSync(configPath, 'utf-8');
-    const config = JSON.parse(configContent);
+    const supabase = getSupabase();
 
-    // Count Greenhouse companies
-    const greenhouseSources = Object.keys(config.greenhouse || {}).length;
+    // Get distinct companies from Greenhouse data source
+    const { data: greenhouseData, error: greenhouseError } = await supabase
+      .from('enriched_jobs')
+      .select('employer_name')
+      .eq('data_source', 'greenhouse')
+      .not('employer_name', 'is', null);
+
+    if (greenhouseError) {
+      throw new Error(`Greenhouse companies query failed: ${greenhouseError.message}`);
+    }
+
+    // Count unique Greenhouse companies
+    const uniqueGreenhouseCompanies = new Set(greenhouseData?.map(r => r.employer_name) || []);
+    const greenhouseSources = uniqueGreenhouseCompanies.size;
 
     // Adzuna: 1 API source
     const adzunaSources = 1;
@@ -28,7 +36,7 @@ export async function GET() {
       meta: {
         last_updated: new Date().toISOString(),
         total_records: totalSources,
-        source: 'greenhouse',
+        source: 'all',
       },
     };
 
@@ -44,7 +52,7 @@ export async function GET() {
         meta: {
           last_updated: new Date().toISOString(),
           total_records: 0,
-          source: 'greenhouse',
+          source: 'all',
         },
         error: errorMessage,
       },
