@@ -1,12 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import type { ApiResponse, TestConnectionData, GlobalFilters as FilterState } from '@/lib/types/hiring-market';
+import type { ApiResponse, TestConnectionData, JobSourcesData, GlobalFilters as FilterState } from '@/lib/types/hiring-market';
 import GlobalFilters from './components/GlobalFilters';
 import RoleDemandChart from './components/RoleDemandChart';
 
 export default function HiringMarketPage() {
   const [connectionData, setConnectionData] = useState<TestConnectionData | null>(null);
+  const [jobSources, setJobSources] = useState<JobSourcesData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [filters, setFilters] = useState<FilterState>({
@@ -15,18 +16,28 @@ export default function HiringMarketPage() {
     job_family: 'data',
   });
   const [lastUpdated, setLastUpdated] = useState<string | null>(null);
+  const [filteredCount, setFilteredCount] = useState<number>(0);
 
   useEffect(() => {
     async function fetchConnectionTest() {
       try {
-        const response = await fetch('/api/hiring-market/test-connection');
-        const json: ApiResponse<TestConnectionData> = await response.json();
+        const [connectionResponse, sourcesResponse] = await Promise.all([
+          fetch('/api/hiring-market/test-connection'),
+          fetch('/api/hiring-market/job-sources'),
+        ]);
 
-        if (json.error) {
-          setError(json.error);
+        const connectionJson: ApiResponse<TestConnectionData> = await connectionResponse.json();
+        const sourcesJson: ApiResponse<JobSourcesData> = await sourcesResponse.json();
+
+        if (connectionJson.error) {
+          setError(connectionJson.error);
         } else {
-          setConnectionData(json.data);
-          setLastUpdated(json.meta.last_updated);
+          setConnectionData(connectionJson.data);
+          setLastUpdated(connectionJson.meta.last_updated);
+        }
+
+        if (!sourcesJson.error && sourcesJson.data) {
+          setJobSources(sourcesJson.data);
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to fetch data');
@@ -40,6 +51,27 @@ export default function HiringMarketPage() {
 
   const handleFiltersChange = (newFilters: FilterState) => {
     setFilters(newFilters);
+
+    // Fetch the filtered count
+    async function fetchFilteredCount() {
+      try {
+        const params = new URLSearchParams();
+        if (newFilters.date_range) params.set('date_range', newFilters.date_range.toString());
+        params.set('city_code', newFilters.city_code);
+        params.set('job_family', newFilters.job_family);
+
+        const response = await fetch(`/api/hiring-market/count?${params}`);
+        const json: ApiResponse<{ total: number }> = await response.json();
+
+        if (!json.error) {
+          setFilteredCount(json.data.total);
+        }
+      } catch (err) {
+        console.error('Failed to fetch filtered count:', err);
+      }
+    }
+
+    fetchFilteredCount();
     // Charts will re-fetch data based on these filters
   };
 
@@ -56,8 +88,8 @@ export default function HiringMarketPage() {
         <h2 className="text-2xl font-bold mb-6 text-white">Data Overview</h2>
 
         {loading && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {[1, 2, 3].map((i) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[1, 2, 3, 4].map((i) => (
               <div
                 key={i}
                 className="bg-[#1a1a1a] border border-gray-800 rounded-xl p-6 animate-pulse"
@@ -78,31 +110,35 @@ export default function HiringMarketPage() {
         )}
 
         {connectionData && !loading && (
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="card-standard">
-              <h3 className="text-sm font-medium text-gray-400 mb-2">Total Job Postings</h3>
+              <h3 className="text-sm font-medium text-gray-400 mb-2">Job Count</h3>
               <p className="text-3xl font-bold text-white mb-1">
-                {connectionData.enriched_jobs_count.toLocaleString()}
+                {filteredCount.toLocaleString()}
               </p>
-              <p className="text-xs text-gray-500">Across all sources</p>
+              <p className="text-xs text-gray-500">Based on current filter selection</p>
             </div>
 
             <div className="card-standard">
-              <h3 className="text-sm font-medium text-gray-400 mb-2">Premium Companies</h3>
+              <h3 className="text-sm font-medium text-gray-400 mb-2">Total Job Dataset</h3>
               <p className="text-3xl font-bold text-white mb-1">
-                {connectionData.greenhouse_count.toLocaleString()}
+                {connectionData.enriched_jobs_count.toLocaleString()}
               </p>
-              <p className="text-xs text-gray-500">Full Job Taxonomies (high quality)</p>
+              <p className="text-xs text-gray-500">Across all sources (all time, deduped)</p>
             </div>
 
             <div className="card-standard">
               <h3 className="text-sm font-medium text-gray-400 mb-2">Cities Tracked</h3>
+              <p className="text-3xl font-bold text-white mb-1">3</p>
+              <p className="text-xs text-gray-500">London, NYC, Denver</p>
+            </div>
+
+            <div className="card-standard">
+              <h3 className="text-sm font-medium text-gray-400 mb-2">Total Job Sources</h3>
               <p className="text-3xl font-bold text-white mb-1">
-                {connectionData.cities.length}
+                {jobSources ? jobSources.total_sources.toLocaleString() : '-'}
               </p>
-              <p className="text-xs text-gray-500">
-                {connectionData.cities.slice(0, 3).join(', ')}
-              </p>
+              <p className="text-xs text-gray-500">Greenhouse + Adzuna</p>
             </div>
           </div>
         )}

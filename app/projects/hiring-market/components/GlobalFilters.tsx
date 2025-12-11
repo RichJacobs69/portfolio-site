@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import type { GlobalFilters as FilterState, JobCountData, ApiResponse } from '@/lib/types/hiring-market';
+import type { GlobalFilters as FilterState } from '@/lib/types/hiring-market';
 import CustomSelect from './CustomSelect';
 
 interface GlobalFiltersProps {
@@ -16,33 +16,8 @@ export default function GlobalFilters({ onFiltersChange, lastUpdated }: GlobalFi
     job_family: 'data',
   });
 
-  const [jobCount, setJobCount] = useState<number | null>(null);
-  const [loadingCount, setLoadingCount] = useState(false);
-
-  // Fetch job count whenever filters change
+  // Notify parent when filters change
   useEffect(() => {
-    async function fetchCount() {
-      setLoadingCount(true);
-      try {
-        const params = new URLSearchParams();
-        if (filters.date_range) params.set('date_range', filters.date_range.toString());
-        params.set('city_code', filters.city_code);
-        params.set('job_family', filters.job_family);
-
-        const response = await fetch(`/api/hiring-market/count?${params}`);
-        const json: ApiResponse<JobCountData> = await response.json();
-
-        if (!json.error) {
-          setJobCount(json.data.total);
-        }
-      } catch (err) {
-        console.error('Failed to fetch job count:', err);
-      } finally {
-        setLoadingCount(false);
-      }
-    }
-
-    fetchCount();
     onFiltersChange(filters);
   }, [filters, onFiltersChange]);
 
@@ -155,48 +130,6 @@ export default function GlobalFilters({ onFiltersChange, lastUpdated }: GlobalFi
           </button>
         </div>
 
-        {/* Job Count */}
-        <div className="text-sm text-gray-400">
-          {jobCount !== null ? (
-            <span className="inline-flex items-center gap-2">
-              <span>
-                <span className="font-semibold text-white">{jobCount.toLocaleString()}</span> jobs
-              </span>
-              {loadingCount && (
-                <svg
-                  className="animate-spin h-3 w-3 text-gray-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                >
-                  <circle
-                    className="opacity-25"
-                    cx="12"
-                    cy="12"
-                    r="10"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  ></circle>
-                  <path
-                    className="opacity-75"
-                    fill="currentColor"
-                    d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
-                  ></path>
-                </svg>
-              )}
-              {jobCount === 0 && !loadingCount && (
-                <span className="text-amber-400">
-                  No jobs found matching these filters
-                </span>
-              )}
-              {jobCount > 0 && jobCount < 30 && !loadingCount && (
-                <span className="text-amber-400">Small sample</span>
-              )}
-            </span>
-          ) : (
-            loadingCount && <div className="h-5 w-24 bg-gray-800 animate-pulse rounded"></div>
-          )}
-        </div>
       </div>
     </div>
   );

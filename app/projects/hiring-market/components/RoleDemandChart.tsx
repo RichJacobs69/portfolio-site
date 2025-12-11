@@ -34,8 +34,8 @@ export default function RoleDemandChart({ filters }: RoleDemandChartProps) {
       try {
         const params = new URLSearchParams();
         if (filters.date_range) params.set('date_range', filters.date_range.toString());
-        if (filters.city_code !== 'all') params.set('city_code', filters.city_code);
-        if (filters.job_family !== 'all') params.set('job_family', filters.job_family);
+        params.set('city_code', filters.city_code);
+        params.set('job_family', filters.job_family);
 
         const response = await fetch(`/api/hiring-market/role-demand?${params}`);
         const json: ApiResponse<RoleDemandData[]> = await response.json();

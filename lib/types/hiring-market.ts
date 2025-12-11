@@ -17,6 +17,12 @@ export interface TestConnectionData {
   cities: string[];
 }
 
+export interface JobSourcesData {
+  greenhouse_sources: number;
+  adzuna_sources: number;
+  total_sources: number;
+}
+
 export interface RoleDemandData {
   city_code: string;
   job_subfamily: string;
